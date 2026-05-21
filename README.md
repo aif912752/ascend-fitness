@@ -1,5 +1,7 @@
 # ASCEND PERFORMANCE - Cinematic Landing Page
 
+[![Live Demo](https://img.shields.io/badge/demo-live-red?style=for-the-badge)](https://aif912752.github.io/ascend-fitness/)
+
 A premium, immersive landing page for a luxury fitness and performance club featuring cinematic scroll-driven animations, Three.js 3D effects, and GSAP ScrollTrigger.
 
 ## 🎬 Features
