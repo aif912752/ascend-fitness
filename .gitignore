@@ -1,0 +1,37 @@
+# ASCEND PERFORMANCE - Git Ignore File
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js (if using local dev server)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build Files
+dist/
+build/
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Temporary Files
+*.tmp
+*.temp

@@ -1,0 +1,702 @@
+/* Custom Styles for ASCEND PERFORMANCE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Smoke Effect Layers */
+.smoke-layer-1 {
+    background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03), transparent 70%);
+    animation: smoke-move-1 20s ease-in-out infinite;
+}
+
+.smoke-layer-2 {
+    background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02), transparent 70%);
+    animation: smoke-move-2 25s ease-in-out infinite;
+}
+
+@keyframes smoke-move-1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+        opacity: 0.2;
+    }
+    66% {
+        transform: translate(-30px, 20px) scale(0.9);
+        opacity: 0.4;
+    }
+}
+
+@keyframes smoke-move-2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-40px, 40px) scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+/* Particles Container */
+.particles-container {
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float-particle 10s infinite ease-in-out;
+}
+
+@keyframes float-particle {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, -100vh);
+        opacity: 0;
+    }
+}
+
+/* Perspective Container */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+/* Tunnel Styles Enhancement */
+#tunnel {
+    background: radial-gradient(circle at center, oklch(0.2 0.15 25) 0%, oklch(0.05 0.02 20) 100%);
+}
+
+.tunnel-ring {
+    box-shadow: 0 0 40px rgba(220, 38, 38, 0.2), inset 0 0 40px rgba(220, 38, 38, 0.1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.tunnel-layer {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Glitch Text Effect - Performance Optimized */
+.glitch-text {
+    position: relative;
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* Ensure it covers the original for clip effect */
+    will-change: clip-path, transform;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip-path: inset(44% 0 56% 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    clip-path: inset(10% 0 85% 0);
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip-path: inset(31% 0 6% 0); }
+    20% { clip-path: inset(10% 0 76% 0); }
+    40% { clip-path: inset(61% 0 6% 0); }
+    60% { clip-path: inset(89% 0 11% 0); }
+    80% { clip-path: inset(3% 0 25% 0); }
+    100% { clip-path: inset(48% 0 52% 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip-path: inset(65% 0 1% 0); }
+    20% { clip-path: inset(13% 0 87% 0); }
+    40% { clip-path: inset(92% 0 8% 0); }
+    60% { clip-path: inset(27% 0 25% 0); }
+    80% { clip-path: inset(68% 0 48% 0); }
+    100% { clip-path: inset(51% 0 88% 0); }
+}
+
+/* Training Experience Cards - Performance Optimization */
+.training-sticky-wrapper {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.training-card {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    pointer-events: none; /* Disable by default */
+}
+
+.training-card.active {
+    pointer-events: auto; /* Enable when active */
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Performance Core Scene */
+#performance-canvas-container {
+    opacity: 0.6;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Final Particles */
+.final-particles {
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    animation: pulse-particles 4s ease-in-out infinite;
+}
+
+@keyframes pulse-particles {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* Text Glow Effects */
+.text-glow {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.text-glow-red {
+    text-shadow: 0 0 40px rgba(220, 38, 38, 0.5);
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.5em;
+    animation: loading-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .tunnel-ring {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .mindset-visual {
+        height: 300px;
+    }
+}
+
+/* Smooth Scroll Behavior */
+.smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+/* Ambient Light Effect */
+.ambient-light {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Cinematic Grain Effect */
+.cinematic-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05; /* Slightly increased for better texture visibility */
+    pointer-events: none;
+    z-index: 100;
+    background-image: url('assets/images/grain-texture.png');
+    background-repeat: repeat;
+}
+
+/* Red Accent Light */
+.red-accent {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Lenis Smooth Scroll Required Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Enhanced Navigation */
+nav {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+nav.scrolled {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+nav a {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: oklch(0.6 0.25 25);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* Refined Button Hover Effects */
+.performance-btn,
+.final-cta,
+.hero-cta button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.performance-btn:hover,
+.final-cta:hover,
+.hero-cta button:first-child:hover {
+    box-shadow: 0 0 30px oklch(0.5 0.2 25 / 0.4);
+    transform: translateY(-2px);
+}
+
+/* Typography Enhancements */
+.hero-title,
+.mindset-content h2,
+.training-card h3,
+.performance-title,
+.final-title {
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+}
+
+/* CHAPTER 0X Text Styling */
+.mindset-content span,
+.performance-number {
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+/* Smooth Image Transitions */
+img, .mindset-bg, .training-video-fallback, .tunnel-video-fallback {
+    transition: filter 0.8s ease, transform 0.8s ease;
+}
+
+.mindset-item:hover .mindset-bg {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Performance Metrics */
+.metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-out;
+}
+
+.metric-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Text Sizes */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 3.5rem !important;
+        line-height: 1;
+    }
+
+    .mindset-content h2 {
+        font-size: 3rem !important;
+    }
+
+    .performance-title {
+        font-size: 3.5rem !important;
+    }
+}
+
+/* Selection Styling */
+::selection {
+    background: rgba(220, 38, 38, 0.3);
+    color: white;
+}
+
+::-moz-selection {
+    background: rgba(220, 38, 38, 0.3);
+    color: white;
+}
+
+/* ============================================
+   VIDEO & IMAGE STYLES
+============================================ */
+
+/* Hero Video */
+.hero-video-container {
+    z-index: 1;
+}
+
+.hero-video {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+    /* Remove watermark: zoom in more to crop bottom-right corner */
+    transform: scale(1.2);
+    transform-origin: center center;
+}
+
+.hero-video.loaded {
+    opacity: 1;
+}
+
+.hero-video-fallback {
+    z-index: 0;
+    transition: opacity 0.5s ease-out;
+    /* Remove watermark: zoom in more */
+    transform: scale(1.2);
+}
+
+.hero-video.loaded + .hero-video-fallback {
+    opacity: 0;
+}
+
+.hero-overlay {
+    z-index: 2;
+}
+
+/* Hero content - ensure it's above everything */
+.hero-container {
+    position: relative;
+    z-index: 100;
+}
+
+/* Training Videos */
+.training-video-container {
+    z-index: 1;
+}
+
+.training-video {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+    /* Remove watermark: zoom in more to crop bottom-right corner */
+    transform: scale(1.2);
+    transform-origin: center center;
+}
+
+.training-video.loaded {
+    opacity: 1;
+}
+
+.training-video-fallback {
+    z-index: 0;
+    /* Remove watermark: zoom in more */
+    transform: scale(1.2);
+}
+
+.training-video.loaded + .training-video-fallback {
+    opacity: 0;
+}
+
+/* Training card content - ensure it's above everything */
+.training-card .relative.z-10,
+.training-card > div:last-child {
+    position: relative;
+    z-index: 100 !important;
+}
+
+/* Tunnel Video */
+.tunnel-video-container {
+    background: black;
+}
+
+.tunnel-video {
+    mix-blend-mode: screen; 
+    transform: scale(1.2);
+    transform-origin: center center;
+}
+
+/* Tunnel Video & Fallback Layering */
+.tunnel-video {
+    z-index: 2;
+    mix-blend-mode: screen; 
+    transform: scale(1.2);
+    transform-origin: center center;
+}
+
+.tunnel-video.loaded {
+    opacity: 0.6 !important; /* Slightly transparent to let the image and gradient shine through */
+}
+
+/* Fallback image stays visible to provide texture and color depth */
+.tunnel-video-fallback {
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    transform: scale(1.2);
+}
+
+/* Removed: .tunnel-video.loaded + .tunnel-video-fallback { opacity: 0; } */
+
+/* Tunnel content stays above video */
+.tunnel-container {
+    pointer-events: none;
+}
+
+.tunnel-content {
+    pointer-events: auto;
+}
+
+/* ============================================
+   WATERMARK REMOVER OVERLAYS
+============================================ */
+
+/* Add dark overlay at bottom-right corner to hide watermark */
+.hero-video-container::after,
+.training-video-container::after,
+.tunnel-video-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 80px;
+    background: linear-gradient(to top left, rgba(0, 0, 0, 0.9), transparent);
+    z-index: 25; /* Higher than videos (z-10) but lower than content (z-30) */
+    pointer-events: none;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .hero-video-container::after,
+    .training-video-container::after,
+    .tunnel-video-container::after {
+        width: 100px;
+        height: 60px;
+    }
+}
+
+/* Mindset Background Images */
+.mindset-bg {
+    z-index: 0;
+}
+
+.mindset-overlay {
+    z-index: 1;
+}
+
+/* Mindset content - ensure it's above everything */
+.mindset-content {
+    position: relative;
+    z-index: 100;
+}
+
+.mindset-visual {
+    position: relative;
+    z-index: 50;
+}
+
+/* Video Loading State */
+video {
+    will-change: opacity;
+}
+
+video::part(video) {
+    background: black;
+}
+
+/* ============================================
+   SECTION Z-INDEX LAYERS
+============================================ */
+
+/* Ensure proper stacking order */
+#hero {
+    z-index: 10;
+}
+
+#mindset {
+    z-index: 15;
+}
+
+#training {
+    z-index: 20;
+    position: relative;
+}
+
+.training-container {
+    position: relative;
+    width: 100%;
+}
+
+#tunnel {
+    z-index: 50;
+}
+
+#performance {
+    z-index: 50;
+}
+
+#final {
+    z-index: 50;
+}
+
+/* Performance content stays above canvas */
+.performance-container .text-center {
+    position: relative;
+    z-index: 100 !important;
+}
+
+/* Performance core content */
+.performance-title,
+.performance-desc,
+.performance-number {
+    position: relative;
+    z-index: 100;
+}
+
+#performance-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#webgl-canvas {
+    pointer-events: none;
+}

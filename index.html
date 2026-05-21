@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCEND PERFORMANCE | Elite Fitness Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo-ascend.svg">
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Three.js Canvas -->
+    <canvas id="webgl-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <!-- Cinematic Grain Overlay -->
+    <div class="cinematic-grain"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <img src="assets/logo-ascend.svg" alt="ASCEND" class="h-10 w-auto invert">
+        <div class="hidden md:flex gap-8 text-sm tracking-widest">
+            <a href="#mindset" class="hover:text-red-500 transition-colors">MINDSET</a>
+            <a href="#training" class="hover:text-red-500 transition-colors">TRAINING</a>
+            <a href="#performance" class="hover:text-red-500 transition-colors">PERFORMANCE</a>
+        </div>
+        <button class="px-6 py-2 border border-white text-sm tracking-widest hover:bg-white hover:text-black transition-all">
+            JOIN
+        </button>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Hero Background Video -->
+        <div class="hero-video-container absolute inset-0 overflow-hidden">
+            <video
+                class="hero-video absolute inset-0 w-full h-full object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto">
+                <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+            </video>
+            <!-- Fallback Image -->
+            <div class="hero-video-fallback absolute inset-0 w-full h-full bg-cover bg-center"
+                 style="background-image: url('assets/images/hero-bg.jpeg');"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+
+        <!-- Smoke Effect Layers -->
+        <div class="smoke-layer-1 absolute inset-0 opacity-30"></div>
+        <div class="smoke-layer-2 absolute inset-0 opacity-20"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-container relative z-10 text-center px-4">
+            <h1 class="hero-title text-7xl md:text-9xl font-bold tracking-tighter mb-6" style="font-family: 'Bebas Neue', sans-serif; opacity: 1;">
+                BUILT THROUGH<br>
+                <span class="text-red-600">DISCIPLINE</span>
+            </h1>
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-400 tracking-widest mb-12 font-light" style="opacity: 1;">
+                PERFORMANCE IS EARNED IN SILENCE
+            </p>
+            <div class="hero-cta flex flex-col md:flex-row gap-4 justify-center" style="opacity: 1;">
+                <button class="px-12 py-4 bg-red-600 hover:bg-red-700 text-white tracking-widest transition-all transform hover:scale-105">
+                    START TRAINING
+                </button>
+                <button class="px-12 py-4 border border-white hover:bg-white hover:text-black tracking-widest transition-all">
+                    EXPLORE THE CLUB
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+            <span class="text-xs tracking-widest">SCROLL</span>
+            <div class="w-px h-16 bg-gradient-to-b from-white to-transparent animate-pulse"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="particles-container absolute inset-0 pointer-events-none"></div>
+    </section>
+
+    <!-- SECTION 2: THE MINDSET -->
+    <section id="mindset" class="relative min-h-screen py-32 overflow-hidden">
+        <div class="mindset-container max-w-7xl mx-auto px-8">
+            <!-- Discipline -->
+            <div class="mindset-item min-h-screen flex items-center py-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="mindset-visual relative h-96 overflow-hidden">
+                        <div class="mindset-bg absolute inset-0 bg-cover bg-center transform scale-110"
+                             style="background-image: url('assets/images/mindset-01-discipline.jpeg');"></div>
+                        <div class="mindset-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-8xl opacity-10 font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                            01
+                        </div>
+                    </div>
+                    <div class="mindset-content space-y-6">
+                        <span class="text-red-600 tracking-widest text-sm">CHAPTER 01</span>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">
+                            DISCIPLINE
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The foundation of all achievement. Every rep, every set, every early morning—
+                            these aren't just actions. They're declarations of who you're becoming.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consistency -->
+            <div class="mindset-item min-h-screen flex items-center py-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="mindset-content space-y-6 md:order-2">
+                        <span class="text-red-600 tracking-widest text-sm">CHAPTER 02</span>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">
+                            CONSISTENCY
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Motational gets you started. Habit keeps you going. We don't chase intensity—
+                            we build sustainability. Results are the product of showing up every single day.
+                        </p>
+                    </div>
+                    <div class="mindset-visual relative h-96 overflow-hidden md:order-1">
+                        <div class="mindset-bg absolute inset-0 bg-cover bg-center transform scale-110"
+                             style="background-image: url('assets/images/mindset-02-consistency.jpeg');"></div>
+                        <div class="mindset-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-8xl opacity-10 font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                            02
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strength -->
+            <div class="mindset-item min-h-screen flex items-center py-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="mindset-visual relative h-96 overflow-hidden">
+                        <div class="mindset-bg absolute inset-0 bg-cover bg-center transform scale-110"
+                             style="background-image: url('assets/images/mindset-03-strength.jpeg');"></div>
+                        <div class="mindset-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-8xl opacity-10 font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                            03
+                        </div>
+                    </div>
+                    <div class="mindset-content space-y-6">
+                        <span class="text-red-600 tracking-widest text-sm">CHAPTER 03</span>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">
+                            STRENGTH
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Physical. Mental. Emotional. True strength isn't just about what you can lift—
+                            it's about what you can endure. Build capacity in every dimension of your life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus -->
+            <div class="mindset-item min-h-screen flex items-center py-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="mindset-content space-y-6 md:order-2">
+                        <span class="text-red-600 tracking-widest text-sm">CHAPTER 04</span>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">
+                            FOCUS
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            In a world of distraction, the ability to direct your attention is a superpower.
+                            Eliminate noise. Clarify your purpose. Execute with precision.
+                        </p>
+                    </div>
+                    <div class="mindset-visual relative h-96 overflow-hidden md:order-1">
+                        <div class="mindset-bg absolute inset-0 bg-cover bg-center transform scale-110"
+                             style="background-image: url('assets/images/mindset-04-focus.jpeg');"></div>
+                        <div class="mindset-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-8xl opacity-10 font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                            04
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recovery -->
+            <div class="mindset-item min-h-screen flex items-center py-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="mindset-visual relative h-96 overflow-hidden">
+                        <div class="mindset-bg absolute inset-0 bg-cover bg-center transform scale-110"
+                             style="background-image: url('assets/images/mindset-05-recovery.jpeg');"></div>
+                        <div class="mindset-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-8xl opacity-10 font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                            05
+                        </div>
+                    </div>
+                    <div class="mindset-content space-y-6">
+                        <span class="text-red-600 tracking-widest text-sm">CHAPTER 05</span>
+                        <h2 class="text-6xl md:text-8xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">
+                            RECOVERY
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Growth happens in the rest. Optimize your sleep, nutrition, and mobility.
+                            Respect the process. Come back stronger.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: TRAINING EXPERIENCE -->
+    <section id="training" class="relative h-[500vh] bg-black z-40">
+        <!-- Sticky Wrapper -->
+        <div class="training-sticky-wrapper sticky top-0 left-0 w-full h-screen overflow-hidden">
+            
+            <div class="training-container relative w-full h-full">
+                <!-- 1. Strength -->
+                <div class="training-card absolute inset-0 flex items-center justify-center opacity-0" data-training="strength">
+                    <div class="training-video-container absolute inset-0 overflow-hidden">
+                        <video
+                            class="training-video absolute inset-0 w-full h-full object-cover z-10"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto">
+                            <source src="assets/videos/training-strength.mp4" type="video/mp4">
+                        </video>
+                        <div class="training-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                             style="background-image: url('assets/images/training-strength.jpeg');"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 via-black/60 to-black z-20"></div>
+                    <div class="relative z-30 text-center px-8">
+                        <div class="text-9xl md:text-[12rem] font-bold mb-8 opacity-20" style="font-family: 'Bebas Neue', sans-serif;">STRENGTH</div>
+                        <h3 class="text-4xl md:text-6xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">BUILD POWER</h3>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto">Progressive overload. Compound movements. Raw power development.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Conditioning -->
+                <div class="training-card absolute inset-0 flex items-center justify-center opacity-0" data-training="conditioning">
+                    <div class="training-video-container absolute inset-0 overflow-hidden">
+                        <video
+                            class="training-video absolute inset-0 w-full h-full object-cover z-10"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto">
+                            <source src="assets/videos/training-conditioning.mp4" type="video/mp4">
+                        </video>
+                        <div class="training-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                             style="background-image: url('assets/images/training-conditioning.jpeg');"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-bl from-orange-900/40 via-black/60 to-black z-20"></div>
+                    <div class="relative z-30 text-center px-8">
+                        <div class="text-9xl md:text-[12rem] font-bold mb-8 opacity-20" style="font-family: 'Bebas Neue', sans-serif;">CONDITIONING</div>
+                        <h3 class="text-4xl md:text-6xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">FORGE ENDURANCE</h3>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto">High-intensity intervals. Metabolic conditioning. Unbreakable engine.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Mobility -->
+                <div class="training-card absolute inset-0 flex items-center justify-center opacity-0" data-training="mobility">
+                    <div class="training-video-container absolute inset-0 overflow-hidden">
+                        <div class="training-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                             style="background-image: url('assets/images/training-mobility.png');"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-yellow-900/40 via-black/60 to-black z-20"></div>
+                    <div class="relative z-30 text-center px-8">
+                        <div class="text-9xl md:text-[12rem] font-bold mb-8 opacity-20" style="font-family: 'Bebas Neue', sans-serif;">MOBILITY</div>
+                        <h3 class="text-4xl md:text-6xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">MOVE FREELY</h3>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto">Functional movement. Joint health. Range of motion optimization.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Recovery -->
+                <div class="training-card absolute inset-0 flex items-center justify-center opacity-0" data-training="recovery">
+                    <div class="training-video-container absolute inset-0 overflow-hidden">
+                        <div class="training-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                             style="background-image: url('assets/images/training-recovery.jpeg');"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tl from-blue-900/40 via-black/60 to-black z-20"></div>
+                    <div class="relative z-30 text-center px-8">
+                        <div class="text-9xl md:text-[12rem] font-bold mb-8 opacity-20" style="font-family: 'Bebas Neue', sans-serif;">RECOVERY</div>
+                        <h3 class="text-4xl md:text-6xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">OPTIMIZE GROWTH</h3>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto">Active recovery. Cryotherapy. Performance restoration.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Performance Lab -->
+                <div class="training-card absolute inset-0 flex items-center justify-center opacity-0" data-training="lab">
+                    <div class="training-video-container absolute inset-0 overflow-hidden">
+                        <div class="training-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                             style="background-image: url('assets/images/training-lab.png');"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-black/60 to-black z-20"></div>
+                    <div class="relative z-30 text-center px-8">
+                        <div class="text-9xl md:text-[12rem] font-bold mb-8 opacity-20" style="font-family: 'Bebas Neue', sans-serif;">LAB</div>
+                        <h3 class="text-4xl md:text-6xl font-bold tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">PERFORMANCE LAB</h3>
+                        <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto">Data-driven training. Biometric analysis. Elite optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PERFORMANCE TUNNEL -->
+    <section id="tunnel" class="relative h-[300vh] bg-black z-50">
+        <!-- Sticky Wrapper: Keeps everything in viewport for the duration of the scroll -->
+        <div class="sticky-wrapper sticky top-0 left-0 w-full h-screen overflow-hidden">
+            
+            <!-- 1. Background Layer (Video & Image) -->
+            <div class="tunnel-video-container absolute inset-0 z-10">
+                <video
+                    class="tunnel-video absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 z-10"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto">
+                    <source src="assets/videos/tunnel-bg.mp4" type="video/mp4">
+                </video>
+                <div class="tunnel-video-fallback absolute inset-0 w-full h-full bg-cover bg-center z-0"
+                     style="background-image: url('assets/images/tunnel-bg.jpeg');"></div>
+            </div>
+
+            <!-- 2. Interactive Layer (Rings & Text) -->
+            <div class="tunnel-container absolute inset-0 flex items-center justify-center perspective-1000 z-20">
+                <!-- Tunnel Layers - Increased for Depth -->
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[90vw] h-[90vw] border-[1px] border-white/5 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[80vw] h-[80vw] border-[2px] border-white/10 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[70vw] h-[70vw] border-[3px] border-white/20 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[60vw] h-[60vw] border-[4px] border-red-600/30 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[50vw] h-[50vw] border-[5px] border-red-600/40 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[40vw] h-[40vw] border-[6px] border-red-600/60 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[35vw] h-[35vw] border-[4px] border-red-600/80 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[30vw] h-[30vw] border-[3px] border-red-500 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[25vw] h-[25vw] border-[2px] border-red-400 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[20vw] h-[20vw] border-[1px] border-red-300 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[15vw] h-[15vw] border-[1px] border-white/20 rounded-full"></div>
+                </div>
+                <div class="tunnel-layer absolute inset-0 flex items-center justify-center">
+                    <div class="tunnel-ring absolute w-[10vw] h-[10vw] border-[1px] border-white/10 rounded-full"></div>
+                </div>
+
+                <!-- Center Content -->
+                <div class="tunnel-content relative z-30 text-center">
+                    <div class="tunnel-text text-6xl md:text-9xl font-bold tracking-tighter text-white select-none" style="font-family: 'Bebas Neue', sans-serif;">
+                        <span class="glitch-text block" data-text="ENTER THE">ENTER THE</span>
+                        <span class="glitch-text block text-red-600" data-text="VOID">VOID</span>
+                    </div>
+                </div>
+
+                <!-- Light Rays Overlay -->
+                <div class="tunnel-light absolute inset-0 bg-gradient-to-b from-transparent via-red-900/10 to-transparent pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: PERFORMANCE CORE (Three.js Scene) -->
+    <section id="performance" class="relative min-h-screen overflow-hidden z-50 bg-black">
+        <div class="performance-container absolute inset-0 flex items-center justify-center">
+            <!-- Additional Three.js Scene Layer -->
+            <div id="performance-canvas-container" class="absolute inset-0 z-0"></div>
+
+            <div class="relative z-10 text-center px-8">
+                <div class="performance-number text-red-600 text-sm tracking-widest mb-4 opacity-0">CORE SYSTEM</div>
+                <h2 class="performance-title text-7xl md:text-9xl font-bold tracking-tight mb-8 opacity-0" style="font-family: 'Bebas Neue', sans-serif;">
+                    PERFORMANCE<br>CORE
+                </h2>
+                <p class="performance-desc text-gray-400 text-xl max-w-2xl mx-auto mb-12 opacity-0">
+                    Where science meets sweat. Where potential becomes power.
+                    This is the heart of elite performance.
+                </p>
+                <button class="performance-btn px-12 py-4 bg-white text-black hover:bg-red-600 hover:text-white tracking-widest transition-all transform hover:scale-105 opacity-0">
+                    BEGIN YOUR JOURNEY
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FINAL CTA -->
+    <section id="final" class="relative min-h-screen flex items-center justify-center overflow-hidden z-50">
+        <!-- Ambient Fade -->
+        <div class="final-fade absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
+
+        <div class="final-container relative z-10 text-center px-8">
+            <h2 class="final-title text-6xl md:text-8xl font-bold tracking-tight mb-8" style="font-family: 'Bebas Neue', sans-serif; opacity: 1;">
+                ASCEND<br><span class="text-red-600">BEYOND</span> LIMITS
+            </h2>
+            <p class="final-subtitle text-gray-400 text-xl mb-12" style="opacity: 1;">
+                Your transformation begins now.
+            </p>
+            <button class="final-cta px-16 py-5 bg-red-600 hover:bg-red-700 text-white text-lg tracking-widest transition-all transform hover:scale-105" style="opacity: 1;">
+                JOIN THE MOVEMENT
+            </button>
+        </div>
+
+        <!-- Final Particles -->
+        <div class="final-particles absolute inset-0 pointer-events-none"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-20 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold tracking-wider mb-4" style="font-family: 'Bebas Neue', sans-serif;">ASCEND</h3>
+                    <p class="text-gray-500 text-sm">Elite performance club for those who refuse to be average.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-widest mb-4 text-sm">LOCATIONS</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li>New York</li>
+                        <li>Los Angeles</li>
+                        <li>Miami</li>
+                        <li>London</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-widest mb-4 text-sm">PROGRAMS</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li>Performance Training</li>
+                        <li>Private Coaching</li>
+                        <li>Group Classes</li>
+                        <li>Recovery Services</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-widest mb-4 text-sm">CONNECT</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                        <li>Twitter</li>
+                        <li>Email</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-900 text-center text-gray-600 text-sm">
+                © 2024 ASCEND PERFORMANCE. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
